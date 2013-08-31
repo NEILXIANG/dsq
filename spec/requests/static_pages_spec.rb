@@ -2,42 +2,34 @@ require 'spec_helper'
 
 describe "Static pages" do
 
+  subject { page }
+
   describe "首页" do
+    before { visit root_path }
 
-    it "should have the content '多少钱？'" do
-      visit '/static_pages/home'
-      expect(page).to have_content('多少钱？')
-    end
-
-    it "should have the title '首页'" do
-      visit '/static_pages/home'
-      expect(page).to have_title("多少钱？ | 首页")
-    end
+    it { should have_content('多少钱？') }
+    it { should have_title(full_title('')) }
+    it { should_not have_title('| 首页') }
   end
 
   describe "帮助" do
+    before { visit help_path }
 
-  	it "should have the content '帮助'" do
-  	  visit '/static_pages/help'
-  	  expect(page).to have_content('帮助')
-  	end
-
-    it "should have the title '帮助'" do
-      visit '/static_pages/help'
-      expect(page).to have_title("多少钱？ | 帮助")
-    end
+    it { should have_content('帮助') }
+    it { should have_title(full_title('帮助')) }
   end
 
   describe "关于我们" do
+    before { visit about_path }
 
-    it "should have the content '关于我们'" do
-      visit '/static_pages/about'
-      expect(page).to have_content('关于我们')
-    end
+    it { should have_content('关于我们') }
+    it { should have_title(full_title('关于我们')) }
+  end
 
-    it "should have the title '关于我们'" do
-      visit '/static_pages/about'
-      expect(page).to have_title("多少钱？ | 关于我们")
-    end
+  describe "联系我们" do
+    before { visit contact_path }
+
+    it { should have_content('联系我们') }
+    it { should have_title(full_title('联系我们')) }
   end
 end
