@@ -7,7 +7,7 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: ds
+  database: dsq
   pool: 5
   username: root
   password: jennypeng
@@ -20,7 +20,7 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: ds_test
+  database: dsq_test
   pool: 5
   username: root
   password: jennypeng
@@ -30,7 +30,7 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: ds_production
+  database: dsq_production
   pool: 5
   username: root
   password: jennypeng
