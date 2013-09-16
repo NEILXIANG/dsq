@@ -42,6 +42,32 @@ describe "User pages" do
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
       end
+
+      describe "after saving the user" do
+        before { click_button submit }
+        let(:user) { User.find_by(email: 'user@example.com') }
+
+        it { should have_link('退出') }
+        it { should have_title(user.name) }
+        it { should have_selector('div.alert.alert-success', text: '欢迎') }
+      end
+    end
+  end
+
+  describe "edit" do
+    let(:user) { FactoryGirl.create(:user) }
+    before { visit edit_user_path(user) }
+
+    describe "page" do
+      it { should have_content("编辑个人资料") }
+      it { should have_title("用户编辑") }
+      it { should have_link('更换头像', href: 'http://gravatar.com/emails') }
+    end
+
+    describe "with invalid information" do
+      before { click_button "保存更改" }
+
+      it { should have_content('error') }
     end
   end
 end
