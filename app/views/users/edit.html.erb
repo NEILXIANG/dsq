@@ -3,25 +3,25 @@
 
 <div class="row">
   <div class="span6 offset3">
-  	<%= form_for(@user) do |f| %>
-  	  <%= render 'shared/error_messages' %>
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
 
-  	  <%= f.label :name, "用户名" %>
-  	  <%=f.text_field :name %>
+      <%= f.label :name, "用户名"  %>
+      <%= f.text_field :name %>
 
-  	  <%= f.label :email, "电子邮件" %>
-  	  <%= f.text_field :email %>
+      <%= f.label :email, "电子邮件"  %>
+      <%= f.text_field :email %>
 
-  	  <%= f.label :password, "密码" %>
-  	  <%= f.password_field :password %>
+      <%= f.label :password, "密码"  %>
+      <%= f.password_field :password %>
 
-  	  <%= f.label :password_confirmation, "请确认密码" %>
-  	  <%= f.password_field :password_confirmation %>
+      <%= f.label :password_confirmation, "请确认密码" %>
+      <%= f.password_field :password_confirmation %>
 
-  	  <%= f.submit "保存更改", class:"btn btn-large btn-primary" %>
-  	<% end %>
+      <%= f.submit "保存更改", class: "btn btn-large btn-primary" %>
+    <% end %>
 
-  	<%= gravatar_for @user %>
-  	<a href="http://gravatar.com/emails">更换头像</a>
+    <%= gravatar_for @user %>
+    <a href="http://gravatar.com/emails">更换头像</a>
   </div>
 </div>
