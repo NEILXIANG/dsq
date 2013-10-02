@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
   end
 
   def new
@@ -52,13 +53,6 @@ class UsersController < ApplicationController
     end
 
     # 事前过滤器
-
-    def signed_in_user
-      unless signed_in?
-        store_location
-        redirect_to signin_url, notice: "请先登录."
-      end
-    end
 
     def correct_user
       @user = User.find(params[:id])
