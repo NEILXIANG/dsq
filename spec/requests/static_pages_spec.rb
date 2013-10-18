@@ -39,8 +39,8 @@ describe "Static pages" do
           visit root_path
         end
 
-        it { should have_link("0 个被关注", href: following_user_path(user)) }
-        it { should have_link("1 个关注", href: followers_user_path(user)) }
+        it { should have_link("0 关注", href: following_user_path(user)) }
+        it { should have_link("1 粉丝", href: followers_user_path(user)) }
       end
     end
   end
